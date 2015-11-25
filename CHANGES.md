@@ -9,8 +9,8 @@
     - [x] variables
   - [x] Create branch with sass
   - [x] Check build stats for each and go with sass if a tie
-- [ ] Setup basic Hugo config
-- [ ] Install nickjj/manifest-revision-webpack-plugin
+- [x] Setup basic Hugo config
+- [ ] Install nickjj/manifest-revision-webpack-plugin and configure webpack to work with it
 
 # BACKLOG - priority
 
@@ -19,3 +19,4 @@
 # BACKLOG - unordered
 
 - [ ] Check how Harry Roberts is establishing vertical rhythmn again
+- [ ] Refactor the host/port for webpack-dev-server in webpack config

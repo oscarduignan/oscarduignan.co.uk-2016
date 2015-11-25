@@ -43,6 +43,7 @@ if(TARGET === 'start' || !TARGET) {
 
         output: {
             path: PATHS.output,
+            publicPath: 'http://localhost:3000/assets/',
             filename: '[name].js'
         },
 
@@ -62,8 +63,7 @@ if(TARGET === 'start' || !TARGET) {
             inline: true,
             progress: true,
             stats: 'errors-only',
-            host: process.env.HOST,
-            port: process.env.PORT
+            port: 3000
         },
 
         plugins: [
