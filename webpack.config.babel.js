@@ -38,6 +38,11 @@ if(TARGET === 'start' || !TARGET) {
     module.exports = merge(common, {
         devtool: 'eval-source-map',
 
+        output: {
+            path: PATHS.output,
+            filename: '[name].js'
+        },
+
         module: {
             loaders: [
                 {
