@@ -4,6 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import Clean from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
 import pkg from './package.json';
+import autoprefixer from 'autoprefixer';
 
 const TARGET = process.env.npm_lifecycle_event;
 
@@ -31,7 +32,9 @@ var common = {
                 include: PATHS.js
             }
         ]
-    }
+    },
+
+    postcss: () => [autoprefixer]
 };
 
 if(TARGET === 'start' || !TARGET) {
@@ -47,7 +50,7 @@ if(TARGET === 'start' || !TARGET) {
             loaders: [
                 {
                     test: /\.scss$/,
-                    loaders: ['style', 'css', 'sass'],
+                    loaders: ['style', 'css', 'sass', 'postcss'],
                     include: PATHS.css
                 }
             ]
@@ -86,7 +89,7 @@ if(TARGET === 'build' || TARGET === 'stats' || TARGET === 'deploy') {
             loaders: [
                 {
                     test: /\.scss$/,
-                    loader: ExtractTextPlugin.extract('style', ['css', 'sass']),
+                    loader: ExtractTextPlugin.extract('style', ['css', 'sass', 'postcss']),
                     include: PATHS.css
                 }
             ]
