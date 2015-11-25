@@ -20,6 +20,8 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
     "image-loader": "0.0.1",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.8",

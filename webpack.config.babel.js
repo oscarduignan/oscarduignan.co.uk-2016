@@ -19,7 +19,7 @@ var common = {
     entry: {
         main: [
             path.join(PATHS.js, 'main.js'),
-            path.join(PATHS.css, 'main.css')
+            path.join(PATHS.css, 'main.scss')
         ]
     },
 
@@ -46,8 +46,8 @@ if(TARGET === 'start' || !TARGET) {
         module: {
             loaders: [
                 {
-                    test: /\.css$/,
-                    loaders: ['style', 'css'],
+                    test: /\.scss$/,
+                    loaders: ['style', 'css', 'sass'],
                     include: PATHS.css
                 }
             ]
@@ -85,8 +85,8 @@ if(TARGET === 'build' || TARGET === 'stats' || TARGET === 'deploy') {
         module: {
             loaders: [
                 {
-                    test: /\.css$/,
-                    loader: ExtractTextPlugin.extract('style', 'css'),
+                    test: /\.scss$/,
+                    loader: ExtractTextPlugin.extract('style', ['css', 'sass']),
                     include: PATHS.css
                 }
             ]
