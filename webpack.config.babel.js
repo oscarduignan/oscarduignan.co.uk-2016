@@ -12,7 +12,7 @@ const ROOT_PATH = path.resolve(__dirname);
 
 const PATHS  = {
     js: path.join(ROOT_PATH, 'js'),
-    css: path.join(ROOT_PATH, 'css'),
+    scss: path.join(ROOT_PATH, 'scss'),
     output: path.join(ROOT_PATH, 'public', 'assets')
 };
 
@@ -20,7 +20,7 @@ var common = {
     entry: {
         main: [
             path.join(PATHS.js, 'main.js'),
-            path.join(PATHS.css, 'main.scss')
+            path.join(PATHS.scss, 'main.scss')
         ]
     },
 
@@ -51,7 +51,7 @@ if(TARGET === 'start' || !TARGET) {
                 {
                     test: /\.scss$/,
                     loaders: ['style', 'css', 'sass', 'postcss'],
-                    include: PATHS.css
+                    include: PATHS.scss
                 }
             ]
         },
@@ -90,7 +90,7 @@ if(TARGET === 'build' || TARGET === 'stats' || TARGET === 'deploy') {
                 {
                     test: /\.scss$/,
                     loader: ExtractTextPlugin.extract('style', ['css', 'sass', 'postcss']),
-                    include: PATHS.css
+                    include: PATHS.scss
                 }
             ]
         },
