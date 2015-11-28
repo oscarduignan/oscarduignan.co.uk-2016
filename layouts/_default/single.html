@@ -6,6 +6,6 @@
     <article>
         {{ .Content }}
     </article>
-    <script src="http://localhost:3000/assets/main.js"></script>
+    <script src="{{.Site.Data.webpack.publicPath}}{{index .Site.Data.webpack.assets "main.js"}}"></script>
 </body>
 </html>

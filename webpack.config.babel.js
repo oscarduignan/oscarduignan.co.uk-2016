@@ -5,22 +5,108 @@ import Clean from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
 import pkg from './package.json';
 import autoprefixer from 'autoprefixer';
+import ManifestRevisionPlugin from 'manifest-revision-webpack-plugin';
+import glob from 'glob';
+
+// WEBPACK PLUGINS
+
+class PrefetchGlobPlugin {
+    constructor(patterns) {
+        this.patterns = [].concat(patterns);
+    }
+
+    apply(compiler) {
+        this.patterns.forEach(pattern => {
+            glob.sync(pattern).forEach(path => {
+                compiler.apply(new webpack.PrefetchPlugin('./' + path));
+            });
+        });
+    }
+}
+
+/*
+    var PrefetchGlobPlugin = function(patterns) {
+        this.patterns = [].concat(patterns);
+    };
+    PrefetchGlobPlugin.prototype.apply = function(compiler) {
+        this.patterns.forEach(pattern => {
+            glob.sync(pattern).forEach(path => {
+                compiler.apply(new webpack.PrefetchPlugin('./' + path));
+            });
+        });
+    };
+*/
+
+class ManifestWriterPlugin {
+    constructor(destination) {
+        this.destination = destination;
+    }
+
+    apply(compiler) {
+        compiler.plugin('emit', (compilation, callback) => {
+            var assets = {};
+
+            Object.keys(compilation.assets).forEach(asset => {
+                console.log(asset);
+                assets[asset.split('.').filter((_, i) => i !== 1).join('.')] = asset;
+            });
+
+            require('fs').writeFileSync(
+                this.destination,
+                JSON.stringify({
+                    hash: compilation.hash,
+                    publicPath: compilation.mainTemplate.getPublicPath({
+                        hash: compilation.hash
+                    }),
+                    assets
+                })
+            );
+
+            callback();
+        });
+    }
+}
+
+/*
+    function() {
+        this.plugin('emit', (compilation) => {
+            var assets = {};
+
+            Object.keys(compilation.assets).forEach(asset => {
+                assets[asset.split('.').filter((_, i) => i !== 1).join('.')] = asset;
+            });
+
+            require('fs').writeFileSync(
+                JSON.stringify({
+                    hash: compilation.hash,
+                    publicPath: compilation.mainTemplate.getPublicPath({
+                        hash: compilation.hash
+                    }),
+                    assets
+                })
+            );
+        });
+    }
+*/
+
+// WEBPACK CONFIG
 
 const TARGET = process.env.npm_lifecycle_event;
 
 const ROOT_PATH = path.resolve(__dirname);
+const ASSETS_PATH  = path.join(ROOT_PATH, 'assets');
 
 const PATHS  = {
-    js: path.join(ROOT_PATH, 'js'),
-    scss: path.join(ROOT_PATH, 'scss'),
+    javascript: path.join(ASSETS_PATH, 'javascript'),
+    stylesheets: path.join(ASSETS_PATH, 'stylesheets'),
     output: path.join(ROOT_PATH, 'public', 'assets')
 };
 
 var common = {
     entry: {
         main: [
-            path.join(PATHS.js, 'main.js'),
-            path.join(PATHS.scss, 'main.scss')
+            path.join(PATHS.javascript, 'main.js'),
+            path.join(PATHS.stylesheets, 'main.scss')
         ]
     },
 
@@ -29,10 +115,21 @@ var common = {
             {
                 test: /\.js$/,
                 loaders: ['babel'],
-                include: PATHS.js
+                include: PATHS.javascript
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loaders: [
+                    'file?context=./assets&name=[path][name].[hash].[ext]'
+                ]
             }
         ]
     },
+
+    plugins: [
+        new PrefetchGlobPlugin("assets/images/**/*"),
+        new ManifestWriterPlugin(path.join(ROOT_PATH, 'data', 'webpack.json'))
+    ],
 
     postcss: () => [autoprefixer]
 };
@@ -44,7 +141,7 @@ if(TARGET === 'start' || !TARGET) {
         output: {
             path: PATHS.output,
             publicPath: 'http://localhost:3000/assets/',
-            filename: '[name].js'
+            filename: '[name].[hash].js'
         },
 
         module: {
@@ -52,7 +149,7 @@ if(TARGET === 'start' || !TARGET) {
                 {
                     test: /\.scss$/,
                     loaders: ['style', 'css', 'sass', 'postcss'],
-                    include: PATHS.scss
+                    include: PATHS.stylesheets
                 }
             ]
         },
@@ -80,6 +177,7 @@ if(TARGET === 'build' || TARGET === 'stats' || TARGET === 'deploy') {
 
         output: {
             path: PATHS.output,
+            publicPath: '/assets/',
             filename: '[name].[chunkhash].js'
         },
 
@@ -90,7 +188,7 @@ if(TARGET === 'build' || TARGET === 'stats' || TARGET === 'deploy') {
                 {
                     test: /\.scss$/,
                     loader: ExtractTextPlugin.extract('style', ['css', 'sass', 'postcss']),
-                    include: PATHS.scss
+                    include: PATHS.stylesheets
                 }
             ]
         },
@@ -113,3 +211,4 @@ if(TARGET === 'build' || TARGET === 'stats' || TARGET === 'deploy') {
         ]
     });
 }
+
