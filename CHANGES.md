@@ -10,7 +10,7 @@
   - [x] Create branch with sass
   - [x] Check build stats for each and go with sass if a tie
 - [x] Setup basic Hugo config
-- [ ] Install nickjj/manifest-revision-webpack-plugin and configure webpack to work with it
+- [ ] Is there a way to disable live reload for data changes? While keeping hugo recompiling
 
 # BACKLOG - priority
 
