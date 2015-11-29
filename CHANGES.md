@@ -10,7 +10,10 @@
   - [x] Create branch with sass
   - [x] Check build stats for each and go with sass if a tie
 - [x] Setup basic Hugo config
-- [ ] Is there a way to disable live reload for data changes? While keeping hugo recompiling
+- [x] Get Hugo working with webpack-dev-server
+- [x] Get Hugo working with webpack prod builds (with cachebusters in filenames)
+- [ ] Expose jQuery as a global
+- [ ] Check how Harry Roberts is establishing vertical rhythmn again
 
 # BACKLOG - priority
 
@@ -18,5 +21,5 @@
 
 # BACKLOG - unordered
 
-- [ ] Check how Harry Roberts is establishing vertical rhythmn again
 - [ ] Refactor the host/port for webpack-dev-server in webpack config
+- [ ] Create a README
