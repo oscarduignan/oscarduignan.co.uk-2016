@@ -24,19 +24,6 @@ class PrefetchGlobPlugin {
     }
 }
 
-/*
-    var PrefetchGlobPlugin = function(patterns) {
-        this.patterns = [].concat(patterns);
-    };
-    PrefetchGlobPlugin.prototype.apply = function(compiler) {
-        this.patterns.forEach(pattern => {
-            glob.sync(pattern).forEach(path => {
-                compiler.apply(new webpack.PrefetchPlugin('./' + path));
-            });
-        });
-    };
-*/
-
 class ManifestWriterPlugin {
     constructor(destination) {
         this.destination = destination;
@@ -66,28 +53,6 @@ class ManifestWriterPlugin {
         });
     }
 }
-
-/*
-    function() {
-        this.plugin('emit', (compilation) => {
-            var assets = {};
-
-            Object.keys(compilation.assets).forEach(asset => {
-                assets[asset.split('.').filter((_, i) => i !== 1).join('.')] = asset;
-            });
-
-            require('fs').writeFileSync(
-                JSON.stringify({
-                    hash: compilation.hash,
-                    publicPath: compilation.mainTemplate.getPublicPath({
-                        hash: compilation.hash
-                    }),
-                    assets
-                })
-            );
-        });
-    }
-*/
 
 // WEBPACK CONFIG
 
