@@ -8,9 +8,8 @@
 </head>
 <body>
     <h1>{{ .Title }}</h1>
-    <article>
-        {{ .Content }}
-    </article>
+
+    {{ .Content }}
 
     {{ if isset .Site.Data.webpack "assets" }}
         <script src="/assets/{{ index .Site.Data.webpack.assets "vendor.js" }}"></script>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Who is Oscar Duignan?</title>
+    <meta name="description" content="26 year old London bloke with a wife, a kid, and a computer.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=Unna|IM+Fell+Double+Pica+SC|IM+Fell+French+Canon+SC|IM+Fell+Great+Primer+SC|Antic+Didone|Alike+Angular|Old+Standard+TT:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
+    {{ if isset .Site.Data.webpack "assets" }}
+        <link rel="stylesheet" type="text/css" href="/assets/{{ index .Site.Data.webpack.assets "main.css" }}">
+    {{ end }}
+</head>
+<body>
+    <h1>Who is Oscar Duignan?</h1>
+
+    <p><img src="/images/family-photo.png" class="img-responsive" alt="Family photo of my blue hair top-right, my wife Kim on the left, and my daughter Lumen bottom-right."></p>
+
+    <p>I live in London with my wife Kim and daughter Lumen. Tuesday through Friday I build websites with Binary Vision, Saturday through Monday I spend time with my family and friends and work on personal projects. I like to dance. I try to write. I want to draw.</p>
+
+    <h2>What am I working on now?</h2>
+
+    <p>I'm reading a lot of books on Stoicism and psychotherapy (mostly CBT). I'm starting to dip into Iain Bank's Culture books.</p>
+
+    <p>There's a kids book in me I want to create for my daughter with my wife's help &mdash; "The girl whose parents fell asleep".</p>
+
+    <p>Scratching an itch I'm periodically building a better (for me) time tracking service that you use primarily through a browser extension. I am building the back end with the Phoenix Framework in Elixir and the front end with React and RxJS.</p>
+
+    <p>I'm also starting work again with a couple of good friends on a 2-degrees-of-separation hospitality-exchange network-of-trust app. We're using Meteor, React, and Neo4j to try and make this fit in the time between all our other responsibilities and get something helpful in peoples hands as quickly as possible.</p>
+
+    <h2>Things I'm looking for help with</h2>
+
+    <p>I've got a 2016 daily wall calendar that I'm going to try and leverage into maintaining a consistent exercise habit throughout the coming year. Hopefully I'll also soon start some self defense classes again and every day I grow more determined to learn how to lift and to regularly run.</p>
+
+    <h2>Email is the best way to contact me</h2>
+
+    <p>My primary email is <a href="mailto:oscarduignan@gmail.com">oscarduignan@gmail.com</a></p>
+
+    <hr>
+
+    <h1>How is this site built?</h1>
+
+    <p>I write the content for this site in Markdown, which I give to a static site generator called Hugo that converts it into HTML. Then I use a tool called s3-website to compress and push the built site to Amazon S3 where it is hosted. The title font used on the site is called Alike Angular and comes from Google's font service. I manage the CSS, JS, other assets used to create the sites design and functionality using Webpack. You can view the source code for the site at github.com/oscarduignan</p>
+
+    {{ if isset .Site.Data.webpack "assets" }}
+        <script src="/assets/{{ index .Site.Data.webpack.assets "vendor.js" }}"></script>
+        <script src="/assets/{{ index .Site.Data.webpack.assets "main.js" }}"></script>
+    {{ else }}
+        <script src="//localhost:3000/main.js"></script>
+    {{ end }}
+</body>
+</html>
+

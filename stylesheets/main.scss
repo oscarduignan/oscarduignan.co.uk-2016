@@ -12,19 +12,22 @@ body {
     //font-family: 'open sans', sans-serif;
     font-weight: 300;
     line-height: 1.5;
-    margin: 3rem 0;
+    margin: 3rem 0 6rem 0;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
     margin: 0 auto 3rem auto;
     width: 800px;
+    max-width: 100%;
+    padding: 0 2rem;
+    box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h5 {
     color: #111;
     font-size: 6rem;
     font-weight: normal;
-    line-height: 1;
+    line-height: 1.2;
     font-family: $fonts__Unna;
     //font-family: $fonts__IMFellDoublePicaSC;
     //font-family: $fonts__IMFellFrenchCanonSC;
@@ -34,6 +37,42 @@ h1, h2, h3, h4, h5, h5 {
     //font-family: $fonts__OldStandardTT;
 }
 
+h1 {
+    text-align: center;
+}
+
 h2 {
     font-size: 4rem;
+    line-height: 1.2;
+}
+
+hr {
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+}
+
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 50%;
+    float: right;
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+}
+
+a {
+    display: inline-block;
+    padding: 0 3px;
+
+    &:hover,
+    &:focus {
+        color: white;
+        background-color: #111;
+        text-decoration: none;
+    }
+
+    &:active {
+        color: inherit;
+        background-color: #CCC;
+    }
 }
