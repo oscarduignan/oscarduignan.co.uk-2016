@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-$('h1').text('Hello, World!');
+console.log('hello world!');
 
 if (module.hot) {
     // enables HMR, see http://webpack.github.io/docs/hot-module-replacement.html

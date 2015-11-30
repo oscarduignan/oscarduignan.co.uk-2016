@@ -12,12 +12,15 @@
 - [x] Setup basic Hugo config
 - [x] Get Hugo working with webpack-dev-server
 - [x] Get Hugo working with webpack prod builds (with cachebusters in filenames)
-- [ ] Expose jQuery as a global
-- [ ] Check how Harry Roberts is establishing vertical rhythmn again
+- [x] Check how Harry Roberts is establishing vertical rhythmn again
+- [x] Add .editorconfig file
+- [ ] Add normalize.css
+- [ ] Add neutron.css
 
 # BACKLOG - priority
 
 - [ ] Include foundation or purecss as a base for my styles
+- [ ] Look at http://www.modularscale.com/ and http://type-scale.com/
 
 # BACKLOG - unordered
 

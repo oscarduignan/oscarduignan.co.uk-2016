@@ -1,0 +1,39 @@
+@import '~normalize.css/normalize.css';
+
+@import 'config/fonts';
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: #111;
+    font-size: 2rem;
+    //font-family: 'open sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 3rem 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl {
+    margin: 0 auto 3rem auto;
+    width: 800px;
+}
+
+h1, h2, h3, h4, h5, h5 {
+    color: #111;
+    font-size: 6rem;
+    font-weight: normal;
+    line-height: 1;
+    font-family: $fonts__Unna;
+    //font-family: $fonts__IMFellDoublePicaSC;
+    //font-family: $fonts__IMFellFrenchCanonSC;
+    //font-family: $fonts__IMFellGreatPrimerSC;
+    //font-family: $fonts__AnticDidone;
+    font-family: $fonts__AlikeAngular;
+    //font-family: $fonts__OldStandardTT;
+}
+
+h2 {
+    font-size: 4rem;
+}

@@ -1,5 +1,7 @@
 <html>
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Unna|IM+Fell+Double+Pica+SC|IM+Fell+French+Canon+SC|IM+Fell+Great+Primer+SC|Antic+Didone|Alike+Angular|Old+Standard+TT:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
     {{ if isset .Site.Data.webpack "assets" }}
         <link rel="stylesheet" type="text/css" href="/assets/{{ index .Site.Data.webpack.assets "main.css" }}">
     {{ end }}
