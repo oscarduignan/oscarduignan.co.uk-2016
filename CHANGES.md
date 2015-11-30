@@ -12,17 +12,18 @@
 - [x] Setup basic Hugo config
 - [x] Get Hugo working with webpack-dev-server
 - [x] Get Hugo working with webpack prod builds (with cachebusters in filenames)
-- [x] Check how Harry Roberts is establishing vertical rhythmn again
+- [x] Check how Harry Roberts is establishing vertical rhythmn again (update: can't be arsed)
 - [x] Add .editorconfig file
-- [ ] Add normalize.css
-- [ ] Add neutron.css
+- [x] Add normalize.css
+- [x] Look at http://www.modularscale.com/ and http://type-scale.com/ (update: decided not for me)
+- [ ] Setup s3-website deploy configuration
 
 # BACKLOG - priority
 
-- [ ] Include foundation or purecss as a base for my styles
-- [ ] Look at http://www.modularscale.com/ and http://type-scale.com/
+- [ ] Create a README
+- [ ] Add social media meta data (twitter / author information)
 
 # BACKLOG - unordered
 
 - [ ] Refactor the host/port for webpack-dev-server in webpack config
-- [ ] Create a README
+- [ ] Extract header and footer partial from `layouts/index.html`

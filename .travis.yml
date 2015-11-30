@@ -1,0 +1,20 @@
+install:
+    - wget https://github.com/spf13/hugo/releases/download/v0.15/hugo_0.15_linux_amd64.tar.gz
+    - tar xfz hugo_0.15_linux_amd64.tar.gz
+    - gem install s3_website
+    - npm install
+
+script:
+    - npm run build
+    - hugo_0.15_linux_amd64
+
+after_success: s3_website push
+
+env:
+  global:
+    - secure: P11hF7vDlRr8yfkWP7ydlUzbTTAqgH8dGoDk3bNKKFuCHGIxJblhYU5D78gg7MvNNu5i/e0oXCbFENEle2bOkQ8MF6Vx59p2TJqMFazZzBiyv8a+csphO6mgutxs28ahHC4BfUptz0M5uid/eLOAvJmLwQskd0nWIiKtT4TS5Z0=
+    - secure: kg0eNc9ks9QpIXZELpC2CNj9aSUFdS+cc29uqyfl43y8MhSEJLdYu7a5ARZlnLzlPXdZekTRbG/eBFYSQdnteH/GgeRuE7jzO9sytm7VuvC/gZlDeV825IcHyKFFVwEyeIF9KDNjNz+7gbm8g+O8coAx/V8ovyKLJPtJV3cjbQQ=
+
+branches:
+  only:
+    - master
