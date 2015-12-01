@@ -19,7 +19,7 @@
 - [x] Setup s3-website deploy configuration
     - [x] install travis gem locally
     - [x] use latest credentials.csv to create secure env vars in .travis.yml with travis gem
-- [ ] Debug travis-ci build - think the s3_website step isn't working correctly, need to try recreate issue locally
+- [x] Debug travis-ci build - think the s3_website step isn't working correctly, need to try recreate issue locally
 
 # BACKLOG - priority
 
