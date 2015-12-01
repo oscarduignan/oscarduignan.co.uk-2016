@@ -20,11 +20,11 @@
     - [x] install travis gem locally
     - [x] use latest credentials.csv to create secure env vars in .travis.yml with travis gem
 - [x] Debug travis-ci build - think the s3_website step isn't working correctly, need to try recreate issue locally
+- [x] Create a README
 
 # BACKLOG - priority
 
-- [ ] Create a README
-- [ ] Add social media meta data (twitter / author information)
+- [ ] Add social media meta data (twitter / open graph / basic meta tags)
 
 # BACKLOG - unordered
 
