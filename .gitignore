@@ -3,3 +3,5 @@ stats.json
 npm-debug.log
 public
 static/assets
+data/webpack.json
+.env
