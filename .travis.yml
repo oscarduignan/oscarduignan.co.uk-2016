@@ -1,20 +1,20 @@
 language: node_js
 node_js:
-  - "0.12"
+- '0.12'
 install:
-    - wget https://github.com/spf13/hugo/releases/download/v0.15/hugo_0.15_linux_amd64.tar.gz
-    - tar xfz hugo_0.15_linux_amd64.tar.gz
-    - mv hugo_0.15_linux_amd64/hugo_0.15_linux_amd64 hugo
-    - gem install s3_website
-    - npm install
+- wget https://github.com/spf13/hugo/releases/download/v0.15/hugo_0.15_linux_amd64.tar.gz
+- tar xfz hugo_0.15_linux_amd64.tar.gz
+- mv hugo_0.15_linux_amd64/hugo_0.15_linux_amd64 hugo
+- gem install s3_website
+- npm install
 script:
-    - npm run build
-    - ./hugo
+- npm run build
+- "./hugo"
 after_success: s3_website push
 env:
   global:
-    - secure: P11hF7vDlRr8yfkWP7ydlUzbTTAqgH8dGoDk3bNKKFuCHGIxJblhYU5D78gg7MvNNu5i/e0oXCbFENEle2bOkQ8MF6Vx59p2TJqMFazZzBiyv8a+csphO6mgutxs28ahHC4BfUptz0M5uid/eLOAvJmLwQskd0nWIiKtT4TS5Z0=
-    - secure: kg0eNc9ks9QpIXZELpC2CNj9aSUFdS+cc29uqyfl43y8MhSEJLdYu7a5ARZlnLzlPXdZekTRbG/eBFYSQdnteH/GgeRuE7jzO9sytm7VuvC/gZlDeV825IcHyKFFVwEyeIF9KDNjNz+7gbm8g+O8coAx/V8ovyKLJPtJV3cjbQQ=
+  - secure: Hd3wZw/T9Tj4lp4pZl8WdctCsNtKarcjli4vqoI+aJWmp00GkSUKXAhiBoSnoKInM/aqOE2gMPGKfGNNGQtMM/JVP5vHT+SV2TreWiaXt9R/OW8yyX+3MmNjma5/ztetI+sVPYvA2/dlNjih5YoHY+JidlNvLIrC+DerCRG4B297xjgiS51wcEndnkFcH6iAhO/NFdkdUiFMV6Z/wSA13CgHhNO+v80ZsarU11kQtx/onypN0S1jcAfHpcBc2Qfcpn8LBJ72ZvesKO/Geh0KpSuOe9U83KNICYfDPbB+CRV4eNfb4BBLjeFxLhyxdCBrIskcyrD3OV7ctIWWy9oOWuq/FN7nX9b58J2Z6VT9w+GjZFbgKM331LsWSRvA+catVButYAkjh6hTDlfRRRaLlJpkq9yOp+YqQIV47LWym0xUxvH3DCIzCWz7Ke4dynVD1OWamZCg7ibRAaaP1k8aGthSAbSzEksLyerzI/PYykX1HSmN8VG59WlJh2hJ9CtbJJFC7QkNN29Y1BNUFTrT4hNcXSEKZYTGpVwSxjy7MMIAUkfNkPD9n8ymZ/5KI9PgCXLGUVJONf75m6aDKsI6p9qVqWooBij5UMIH2ju9ZB6bgCJeInGy9rIfAzViZnUB83rsEVPPPUIjRwwei03JLLNAOTCi0uRu1hIlS4AXOV0=
+  - secure: Zms6bkc9ReZht3kF+5r2gkAdjo7G2kef7xxUb5pEBSiLxLuQAmU6iTTzUCVL/156CiG5uKct2k7uCwII8y/YHXknRyuG/DxdCHR3Ca9He3TVB7Vg5J4YCgCzUnv/l7FQbj+sPg8v0NDqQRzeRtQQ1o7Hf47BXdgKMi2nRI4obHUUrXX0AW+A4Ijpre/PhbtiJxb0Iv02qW39yrjccTlyoKIjqnNTkqTTcW8Y7Mrbm4PlaRAqX899Wzzr8JqIjVbZ4s9l+eqLmpebyrQpO3a9BzaE6Wmgvf8LqxQ0aFWCD0HHZ/h3cZmMxGPLFJTontnSObiCtaJEm5N90ZY7DWPHH0w+tQotBt8jPSpzM5R7CACGtXnIayZ6u/HLJTCT2VIOYWZpDmMaBZOOUfuGXLssTne1AKWXV6nYqNUxp4ut09FCvWrls6G0iOxmkJBen82nT+XY+aYkOKYTTeFAJCaBwEf3OjcgFI2UQtd7lRip9QbkkIQtymyvgnWr5UepZeES9ZZ+VdnVRKQf2KVXUvhKhHYO2wgvn5uaXur33ypTW2a+ozPR+lH7y3vIs0Bc0gZeRbtg5x+kYAn0xMDePwhvb+003qtd8wDp9n7iMBTYFgXiBI/5fmAahpUNDXUbyNJs3D9iGeZdFOQHHQgzVmjsOE9i82HTYGcJUXqecOtpnJw=
 branches:
   only:
-    - master
+  - master

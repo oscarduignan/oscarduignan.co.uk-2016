@@ -16,7 +16,9 @@
 - [x] Add .editorconfig file
 - [x] Add normalize.css
 - [x] Look at http://www.modularscale.com/ and http://type-scale.com/ (update: decided not for me)
-- [ ] Setup s3-website deploy configuration
+- [x] Setup s3-website deploy configuration
+    - [x] install travis gem locally
+    - [x] use latest credentials.csv to create secure env vars in .travis.yml with travis gem
 
 # BACKLOG - priority
 
