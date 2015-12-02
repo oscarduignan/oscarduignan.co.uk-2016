@@ -1,0 +1,8 @@
+    {{ if isset .Site.Data.webpack "assets" }}
+        <script src="/assets/{{ index .Site.Data.webpack.assets "vendor.js" }}"></script>
+        <script src="/assets/{{ index .Site.Data.webpack.assets "main.js" }}"></script>
+    {{ else }}
+        <script src="//localhost:3000/main.js"></script>
+    {{ end }}
+</body>
+</html>

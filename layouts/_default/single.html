@@ -1,21 +1,7 @@
-<html>
-<head>
-    <link href='https://fonts.googleapis.com/css?family=Unna|IM+Fell+Double+Pica+SC|IM+Fell+French+Canon+SC|IM+Fell+Great+Primer+SC|Antic+Didone|Alike+Angular|Old+Standard+TT:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+{{ partial "header" . }}
 
-    {{ if isset .Site.Data.webpack "assets" }}
-        <link rel="stylesheet" type="text/css" href="/assets/{{ index .Site.Data.webpack.assets "main.css" }}">
-    {{ end }}
-</head>
-<body>
-    <h1>{{ .Title }}</h1>
+<h1>{{ .Title }}</h1>
 
-    {{ .Content }}
+{{ .Content }}
 
-    {{ if isset .Site.Data.webpack "assets" }}
-        <script src="/assets/{{ index .Site.Data.webpack.assets "vendor.js" }}"></script>
-        <script src="/assets/{{ index .Site.Data.webpack.assets "main.js" }}"></script>
-    {{ else }}
-        <script src="//localhost:3000/main.js"></script>
-    {{ end }}
-</body>
-</html>
+{{ partial "footer" . }}

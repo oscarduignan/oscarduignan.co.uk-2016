@@ -21,7 +21,7 @@
     - [x] use latest credentials.csv to create secure env vars in .travis.yml with travis gem
 - [x] Debug travis-ci build - think the s3_website step isn't working correctly, need to try recreate issue locally
 - [x] Create a README
-- [ ] Extract header and footer partial from `layouts/index.html`
+- [x] Extract header and footer partial from `layouts/index.html`
 
 # BACKLOG - priority
 
