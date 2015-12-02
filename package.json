@@ -5,7 +5,8 @@
   "scripts": {
     "stats": "webpack --profile --json > stats.json",
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "rm -rf public; npm run build; hugo; s3_website push"
   },
   "dependencies": {
     "jquery": "^2.1.4"
