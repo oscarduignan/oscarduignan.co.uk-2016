@@ -22,11 +22,12 @@
 - [x] Debug travis-ci build - think the s3_website step isn't working correctly, need to try recreate issue locally
 - [x] Create a README
 - [x] Extract header and footer partial from `layouts/index.html`
+- [x] Verify domain with google dev tools and submit sitemap.xml
 
 # BACKLOG - priority
 
-- [ ] Add social media meta data (twitter / open graph / basic meta tags)
-
 # BACKLOG - unordered
 
+- [ ] Add some rich formatted data ala schema.org for myself
+- [ ] Add social media meta data (twitter / open graph / basic meta tags)
 - [ ] Refactor the host/port for webpack-dev-server in webpack config
