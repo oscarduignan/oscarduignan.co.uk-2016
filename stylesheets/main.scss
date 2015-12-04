@@ -4,13 +4,14 @@
 
 html {
     font-size: 62.5%;
+    text-rendering: optimizeLegibility;
 }
 
 body {
     color: #111;
-    font-size: 2rem;
-    //font-family: 'open sans', sans-serif;
-    font-weight: 300;
+    font-size: 1.8rem;
+    font-family: 'catamaran', sans-serif;
+    font-weight: 100;
     line-height: 1.5;
     margin: 3rem 0 6rem 0;
 }
@@ -29,13 +30,6 @@ h1, h2, h3, h4, h5, h5 {
     font-weight: normal;
     line-height: 1.2;
     font-family: $fonts__Unna;
-    //font-family: $fonts__IMFellDoublePicaSC;
-    //font-family: $fonts__IMFellFrenchCanonSC;
-    //font-family: $fonts__IMFellGreatPrimerSC;
-    //font-family: $fonts__AnticDidone;
-    //font-weight: bold;
-    //font-family: $fonts__AlikeAngular;
-    //font-family: $fonts__OldStandardTT;
 }
 
 h1 {
@@ -63,7 +57,7 @@ hr {
 
 a {
     display: inline-block;
-    padding: 0 3px;
+    padding: 0 5px;
 
     &:hover,
     &:focus {
