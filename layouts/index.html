@@ -28,6 +28,6 @@
 
 <h1>How is this site built?</h1>
 
-<p>I write the content for this site in Markdown, which I give to a static site generator called Hugo that converts it into HTML. Then I use a tool called s3-website to compress and push the built site to Amazon S3 where it is hosted. The title font used on the site is called Unna and comes from Google's font service. I manage the CSS, JS, other assets used to create the sites design and functionality using Webpack. You can view the source code for the site at github.com/oscarduignan</p>
+<p>I write the content for this site in Markdown, which I give to a static site generator called Hugo that converts it into HTML. Then I use a tool called s3-website to compress and push the built site to Amazon S3 where it is hosted. The source for the site is stored in Git and Travis-CI automatically builds and deploys changes for me when I push the source code of my site to GitHub where it is stored. The title font used on the site is called Unna and comes from Google's font service. I manage the CSS, JS, other assets used to create the sites design and functionality using Webpack. You can view the source code for the site at github.com/oscarduignan</p>
 
 {{ partial "footer" . }}
